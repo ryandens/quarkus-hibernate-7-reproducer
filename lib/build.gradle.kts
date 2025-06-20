@@ -18,8 +18,14 @@ repositories {
 dependencies {
     implementation(platform(libs.quarkus.bom))
     implementation("io.quarkus:quarkus-arc")
+    implementation("io.quarkus:quarkus-hibernate-orm")
+    implementation("io.quarkus:quarkus-jdbc-h2")
     implementation("io.smallrye.config:smallrye-config")
     implementation("jakarta.enterprise:jakarta.enterprise.cdi-api")
+
+    annotationProcessor(platform(libs.quarkus.bom))
+    annotationProcessor("org.hibernate.orm:hibernate-jpamodelgen")
+    
     // Use JUnit Jupiter for testing.
     testImplementation(libs.junit.jupiter)
     testImplementation("io.quarkus:quarkus-junit5")
