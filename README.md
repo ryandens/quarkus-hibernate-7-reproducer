@@ -1,7 +1,7 @@
-# Quarkus Component Test Reproducer
+# Quarkus Hibernate JPA modelgen reproducer
 
-The introduction of a QuarkusTest causes the QuarkusComponentTest to fail.
+Upgrading causes java compilation to fail.
 
 
-1. Build scan without the quarkus test: https://scans.gradle.com/s/lob2novma3rom/tests/overview
-2. Build scan with the quarkus test: https://scans.gradle.com/s/wy5jexvami6nw/tests/overview
+1. Build scan on 3.23.4: https://scans.gradle.com/s/3ccxh3g27y3o6
+2. Build scan on 3.24.0.CR1: https://scans.gradle.com/s/6y4476kgpc3ng
