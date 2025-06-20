@@ -13,7 +13,6 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @QuarkusTest
-@TestProfile(ExampleServiceQuarkusTest.TestConfiguration.class)
 final class ExampleServiceQuarkusTest {
 
     @Inject
@@ -22,15 +21,6 @@ final class ExampleServiceQuarkusTest {
 
     @Test
     void name() {
-        assertEquals(ExampleStrategy.TWO, exampleService.getStrategy());
-    }
-
-    public static final class TestConfiguration implements QuarkusTestProfile {
-        @Override
-        public Map<String, String> getConfigOverrides() {
-            return Map.of(
-                    "com.ryandens.strategy", "TWO"
-            );
-        }
+        assertEquals(ExampleStrategy.ONE, exampleService.getStrategy());
     }
 }
