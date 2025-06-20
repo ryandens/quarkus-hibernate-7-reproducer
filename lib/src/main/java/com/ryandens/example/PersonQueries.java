@@ -10,15 +10,15 @@ interface PersonQueries {
     /**
      * Get a Person by their natural ID (UUID), if present.
      *
-     * @param uuid the person's UUID natural ID
+     * @param id the person's UUID natural ID
      * @return an {@link Optional} containing the person, if present, or empty otherwise.
      */
     @HQL(
         """
         select p from Person p
-        where p.uuid = :uuid
+        where p.id = :id
         """)
-    Optional<Person> getPersonByNaturalId(String uuid);
+    Optional<Person> getPersonByNaturalId(String id);
 
     /** needed for JPA */
     @SuppressWarnings("unused")

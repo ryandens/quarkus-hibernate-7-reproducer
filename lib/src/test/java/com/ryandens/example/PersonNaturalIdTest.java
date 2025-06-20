@@ -27,7 +27,7 @@ class PersonNaturalIdTest {
         entityManager.persist(person);
         entityManager.flush();
 
-        String savedUuid = person.getUuid();
+        String savedUuid = person.getId();
 
         // Query using HQL with natural ID
         Optional<Person> foundPerson = personQueries.getPersonByNaturalId(savedUuid);
@@ -35,6 +35,6 @@ class PersonNaturalIdTest {
         assertTrue(foundPerson.isPresent());
         assertEquals("testuser", foundPerson.get().getUsername());
         assertEquals("test@example.com", foundPerson.get().getEmail());
-        assertEquals(savedUuid, foundPerson.get().getUuid());
+        assertEquals(savedUuid, foundPerson.get().getId());
     }
 }
