@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Column;
 import jakarta.persistence.Table;
 import org.hibernate.annotations.NaturalId;
+import org.hibernate.annotations.UuidGenerator;
 
 import java.util.UUID;
 
@@ -18,6 +19,7 @@ public class Person {
     private Long id;
 
     @NaturalId
+    @UuidGenerator
     @Column(unique = true, nullable = false)
     private String uuid;
 
@@ -27,12 +29,9 @@ public class Person {
     @Column(nullable = false)
     private String email;
 
-    public Person() {
-        this.uuid = UUID.randomUUID().toString();
-    }
+    protected Person() {}
 
     public Person(String username, String email) {
-        this();
         this.username = username;
         this.email = email;
     }
