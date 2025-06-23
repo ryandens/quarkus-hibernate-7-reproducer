@@ -13,10 +13,19 @@ plugins {
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
     implementation(platform(libs.quarkus.bom))
+    
+    // Force Hibernate version override
+    implementation("org.hibernate.orm:hibernate-core") {
+        version {
+            strictly(libs.versions.hibernate.get())
+        }
+    }
+    
     implementation("io.quarkus:quarkus-arc")
     implementation("io.quarkus:quarkus-hibernate-orm")
     implementation("io.quarkus:quarkus-jdbc-h2")
@@ -24,7 +33,11 @@ dependencies {
     implementation("jakarta.enterprise:jakarta.enterprise.cdi-api")
 
     annotationProcessor(platform(libs.quarkus.bom))
-    annotationProcessor("org.hibernate.orm:hibernate-jpamodelgen")
+    annotationProcessor("org.hibernate.orm:hibernate-jpamodelgen") {
+        version {
+            strictly(libs.versions.hibernate.get())
+        }
+    }
     
     // Use JUnit Jupiter for testing.
     testImplementation(libs.junit.jupiter)
