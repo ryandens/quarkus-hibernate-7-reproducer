@@ -4,7 +4,7 @@
 [versions]
 junit-jupiter = "5.11.1"
 quarkus = "3.24.0.CR1"
-hibernate = "7.1.0-SNAPSHOT"
+hibernate = "7.0.4-SNAPSHOT"
 
 [libraries]
 quarkus-bom = { module = "io.quarkus.platform:quarkus-bom", version.ref = "quarkus" }
